@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#000000">
+
+    <title>
+        Barong Dash
+    </title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="assets/player.png">
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= START MENU ================= -->
+    <div id="startMenu">
+
+        <div class="menuBox">
+
+            <h1>
+                Legenda Barong dan Rangda
+            </h1>
+
+            <p>
+                Kenali Budaya,
+                Lestarikan Bangsa
+            </p>
+
+            <button id="startBtn">
+
+                START GAME
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= UI GAME ================= -->
+    <div id="ui" style="display:none;">
+
+        <!-- TITLE -->
+        <div id="title">
+
+            <h1>
+                BARONG DASH
+            </h1>
+
+        </div>
+
+        <!-- STATUS PANEL -->
+        <div id="statusPanel">
+
+            <!-- SCORE -->
+            <div class="statusItem">
+
+                <div class="label">
+                    SCORE
+                </div>
+
+                <div id="score">
+                    0
+                </div>
+
+            </div>
+
+            <!-- HIGH SCORE -->
+            <div class="statusItem">
+
+                <div class="label">
+                    BEST SCORE
+                </div>
+
+                <div id="highScore">
+                    0
+                </div>
+
+            </div>
+
+            <!-- LIFE -->
+            <div class="statusItem">
+
+                <div class="label">
+                    DARAH
+                </div>
+
+                <div id="lifeContainer">
+
+                    ❤️
+
+                    <span id="life">
+                        3
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- PAUSE BUTTON -->
+            <button id="pauseBtn">
+
+                PAUSE
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= BOSS UI ================= -->
+    <div id="bossUI" style="display:none;">
+
+        <!-- WARNING -->
+        <div id="bossWarning">
+
+            ⚠ RANGDA TIBA ⚠
+
+        </div>
+
+        <!-- HP -->
+        <div id="bossHpContainer">
+
+            <span id="bossHp">
+
+                ❤️❤️❤️❤️❤️
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- ================= ATTACK BUTTON ================= -->
+    <button id="attackBtn">
+
+        ATTACK
+
+    </button>
+
+    <!-- ================= STORY POPUP ================= -->
+    <div id="storyPopup" style="display:none;">
+
+        <div class="storyBox">
+
+            <h1>
+                Legenda Barong dan Rangda
+            </h1>
+
+            <p>
+
+                Dahulu kala di Pulau Bali,
+                Rangda sang penguasa kegelapan
+                menyebarkan teror ke seluruh desa.
+
+                <br><br>
+
+                Barong,
+                sang pelindung cahaya,
+                bangkit untuk menghentikan
+                kekuatan jahat tersebut.
+
+                <br><br>
+
+                Lompati rintangan,
+                hadapi Rangda,
+                dan selamatkan dunia.
+
+            </p>
+
+            <button id="continueBtn">
+
+                LANJUT
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= COUNTDOWN ================= -->
+    <div id="countdown" style="display:none;">
+
+        3
+
+    </div>
+
+    <!-- ================= VICTORY POPUP ================= -->
+    <div id="victoryPopup" style="display:none;">
+
+        <div class="victoryBox">
+
+            <h1>
+
+                RANGDA KALAH
+
+            </h1>
+
+            <p>
+
+                Kegelapan berhasil dikalahkan.
+
+                <br><br>
+
+                Barong melanjutkan
+                perjalanan suci...
+
+            </p>
+
+            <button id="resumeBtn">
+
+                LANJUTKAN
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= PAUSE POPUP ================= -->
+    <div id="pausePopup" style="display:none;">
+
+        <div class="pauseBox">
+
+            <h1>
+
+                GAME PAUSED
+
+            </h1>
+
+            <button id="resumeGameBtn">
+
+                LANJUTKAN
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= GAME OVER ================= -->
+    <div id="gameOverScreen" style="display:none;">
+
+        <div class="gameOverBox">
+
+            <h1>
+
+                GAME OVER
+
+            </h1>
+
+            <p>
+
+                SCORE :
+
+                <span id="finalScore">
+
+                    0
+
+                </span>
+
+            </p>
+
+            <button id="restartBtn">
+
+                RESTART
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= MOBILE BUTTON ================= -->
+    <button id="jumpBtn">
+
+        ⬆ JUMP
+
+    </button>
+
+    <!-- ================= INSTRUCTION ================= -->
+    <div id="instruction">
+
+        Tekan
+        <b>SPASI</b>
+        untuk lompat
+
+    </div>
+
+    <!-- ================= CANVAS ================= -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="game.js"></script>
+
+</body>
+
+</html>

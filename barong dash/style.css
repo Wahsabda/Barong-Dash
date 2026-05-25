@@ -1,0 +1,839 @@
+/* =========================
+RESET
+========================= */
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+/* =========================
+BODY
+========================= */
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    font-family: 'Cinzel', serif;
+
+    background: black;
+
+}
+
+/* =========================
+CANVAS
+========================= */
+#gameCanvas {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: block;
+
+    z-index: 1;
+
+}
+
+/* =========================
+START MENU
+========================= */
+#startMenu {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.9)
+        );
+
+    z-index: 999999;
+
+}
+
+/* =========================
+MENU BOX
+========================= */
+.menuBox {
+
+    width: 80%;
+
+    max-width: 850px;
+
+    padding: 60px;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    background:
+        rgba(0,0,0,0.65);
+
+    border:
+        2px solid gold;
+
+    color: gold;
+
+    box-shadow:
+        0 0 40px rgba(255,215,0,0.35);
+
+    backdrop-filter:
+        blur(6px);
+
+}
+
+/* =========================
+TITLE
+========================= */
+.menuBox h1 {
+
+    font-size: 64px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 15px gold,
+        2px 2px 10px black;
+
+}
+
+/* =========================
+SUBTITLE
+========================= */
+.menuBox p {
+
+    font-size: 24px;
+
+    line-height: 1.7;
+
+    margin-bottom: 45px;
+
+    color: #f5d76e;
+
+}
+
+/* =========================
+GLOBAL BUTTON
+========================= */
+button {
+
+    font-family:
+        'Cinzel',
+        serif;
+
+}
+
+/* =========================
+START BUTTON
+========================= */
+#startBtn {
+
+    padding:
+        18px 55px;
+
+    font-size: 24px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: gold;
+
+    color: black;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 0 20px rgba(255,215,0,0.4);
+
+}
+
+#startBtn:hover {
+
+    transform:
+        scale(1.08);
+
+    background:
+        #ffd700;
+
+}
+
+/* =========================
+TOP UI
+========================= */
+#ui {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 12px;
+
+    z-index: 999;
+
+}
+
+/* =========================
+TITLE UI
+========================= */
+#title h1 {
+
+    font-size: 52px;
+
+    color: gold;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 12px gold,
+        2px 2px 8px black;
+
+}
+
+/* =========================
+STATUS PANEL
+========================= */
+#statusPanel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 12px;
+
+}
+
+/* =========================
+STATUS ITEM
+========================= */
+.statusItem {
+
+    min-width: 240px;
+
+    padding: 16px 22px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(0,0,0,0.55);
+
+    border:
+        1px solid rgba(255,215,0,0.3);
+
+    color: gold;
+
+    text-align: right;
+
+    box-shadow:
+        0 0 15px rgba(255,215,0,0.15);
+
+    backdrop-filter:
+        blur(5px);
+
+}
+
+/* =========================
+LABEL
+========================= */
+.label {
+
+    font-size: 15px;
+
+    opacity: 0.8;
+
+    margin-bottom: 6px;
+
+}
+
+/* =========================
+SCORE
+========================= */
+#score,
+#highScore {
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+}
+
+/* =========================
+LIFE
+========================= */
+#lifeContainer {
+
+    font-size: 28px;
+
+    color: rgb(255,120,120);
+
+}
+
+/* =========================
+PAUSE BUTTON
+========================= */
+#pauseBtn {
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 20px;
+
+    z-index: 99999;
+
+    padding: 12px 22px;
+
+    font-size: 16px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: gold;
+
+    color: black;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+#pauseBtn:hover {
+
+    transform:
+        scale(1.08);
+
+}
+
+/* =========================
+BOSS UI
+========================= */
+#bossUI {
+
+    position: fixed;
+
+    top: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 99999;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+
+    width: auto;
+
+    height: auto;
+
+    padding: 0;
+
+}
+
+
+
+/* =========================
+BOSS HP
+========================= */
+#bossHp {
+
+    font-size: 50px;
+
+    color: red;
+
+    text-shadow:
+        0 0 15px red,
+        0 0 30px red;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+
+    padding: 0;
+
+    animation:
+        bossPulse 1s infinite;
+
+}
+
+/* =========================
+BOSS WARNING
+========================= */
+#bossWarning {
+
+    position: fixed;
+
+    top: 140px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    white-space: nowrap;
+
+    text-align: center;
+
+    font-size: 52px;
+
+    font-weight: bold;
+
+    color: red;
+
+    font-family: serif;
+
+    z-index: 99999;
+
+    text-shadow:
+        0 0 20px red,
+        0 0 40px darkred;
+
+    animation:
+        warningFlash 0.8s infinite;
+
+    pointer-events: none;
+
+}
+/* =========================
+WARNING ANIMATION
+========================= */
+@keyframes warningFlash {
+
+    0% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        opacity: 0.4;
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+}
+
+/* =========================
+ATTACK BUTTON
+========================= */
+#attackBtn {
+
+    position: fixed;
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ff2e2e,
+            #7a0000
+        );
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 0 30px red;
+
+    transition: 0.2s;
+
+}
+
+#attackBtn:hover {
+
+    transform:
+        scale(1.1);
+
+    box-shadow:
+        0 0 45px red;
+
+}
+
+#attackBtn:active {
+
+    transform:
+        scale(0.92);
+
+}
+
+/* =========================
+POPUP GLOBAL
+========================= */
+#storyPopup,
+#victoryPopup,
+#pausePopup,
+#gameOverScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        rgba(0,0,0,0.78);
+
+    z-index: 999999;
+
+}
+
+/* =========================
+BOX GLOBAL
+========================= */
+.storyBox,
+.victoryBox,
+.pauseBox,
+.gameOverBox {
+
+    width: 80%;
+
+    max-width: 760px;
+
+    padding: 55px;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    background:
+        rgba(0,0,0,0.88);
+
+    border:
+        2px solid gold;
+
+    color: gold;
+
+    box-shadow:
+        0 0 40px rgba(255,215,0,0.3);
+
+    animation:
+        popupShow 0.35s ease;
+
+}
+
+/* =========================
+POPUP ANIMATION
+========================= */
+@keyframes popupShow {
+
+    from {
+
+        transform:
+            scale(0.8);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+/* =========================
+POPUP TITLE
+========================= */
+.storyBox h1,
+.victoryBox h1,
+.pauseBox h1,
+.gameOverBox h1 {
+
+    font-size: 54px;
+
+    margin-bottom: 30px;
+
+}
+
+/* =========================
+POPUP TEXT
+========================= */
+.storyBox p,
+.victoryBox p,
+.gameOverBox p {
+
+    font-size: 24px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+
+}
+
+/* =========================
+POPUP BUTTON
+========================= */
+#continueBtn,
+#resumeBtn,
+#resumeGameBtn,
+#restartBtn {
+
+    padding: 16px 42px;
+
+    font-size: 22px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: gold;
+
+    color: black;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+#continueBtn:hover,
+#resumeBtn:hover,
+#resumeGameBtn:hover,
+#restartBtn:hover {
+
+    transform:
+        scale(1.08);
+
+}
+
+/* =========================
+GAME OVER TITLE
+========================= */
+.gameOverBox h1 {
+
+    color: crimson;
+
+    text-shadow:
+        0 0 15px crimson;
+
+}
+
+/* =========================
+COUNTDOWN
+========================= */
+#countdown {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999999;
+
+    font-size: 200px;
+
+    color: white;
+
+    text-shadow:
+        0 0 25px white;
+
+}
+
+/* =========================
+INSTRUCTION
+========================= */
+#instruction {
+
+    position: fixed;
+
+    bottom: 25px;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: white;
+
+    text-shadow:
+        2px 2px 6px black;
+
+    z-index: 15;
+
+}
+
+/* =========================
+MOBILE JUMP BUTTON
+========================= */
+#jumpBtn {
+
+    position: fixed;
+
+    bottom: 35px;
+
+    left: 30px;
+
+    width: 115px;
+
+    height: 115px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background:
+        rgba(255,215,0,0.85);
+
+    color: black;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    display: none;
+
+    z-index: 30;
+
+    box-shadow:
+        0 0 20px rgba(255,215,0,0.45);
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    #jumpBtn {
+
+        display: block;
+
+    }
+
+    #bossUI {
+
+        width: 280px;
+
+    }
+
+    #bossWarning {
+
+        font-size: 28px;
+
+        top: 115px;
+
+    }
+
+    #attackBtn {
+
+        width: 95px;
+
+        height: 95px;
+
+        font-size: 22px;
+
+    }
+
+    .menuBox h1 {
+
+        font-size: 40px;
+
+    }
+
+}
+
+@keyframes bossPulse {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
